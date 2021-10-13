@@ -27,6 +27,8 @@ data:
     spring.datasource.password = {{ required "configdb.password is required!" .Values.configdb.password }}
     apollo.config-service.url = {{ include "apollo.configService.serviceUrl" .}}
     apollo.admin-service.url = {{ include "apollo.adminService.serviceUrl" .}}
+    spring.cloud.consul.host = {{ required "configetc.consul_host is required!" .Values.configetc.consul_host }}
+    spring.cloud.consul.port = {{ required "configetc.consul_port is required!" .Values.configetc.consul_port }}
     {{- if .Values.configService.config.contextPath }}
     server.servlet.context-path = {{ .Values.configService.config.contextPath }}
     {{- end }}
